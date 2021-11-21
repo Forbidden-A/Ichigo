@@ -1,4 +1,4 @@
-from guardian import __version__
+from ichigo import __version__
 
 
 def test_version():
