@@ -1,0 +1,5 @@
+bot:
+    testing_guilds: [
+        878779133973389373, # Forbidden Server
+        911743102501421117, # Milk
+    ]
