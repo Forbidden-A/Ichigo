@@ -1,5 +1,6 @@
 import logging
 import os
+import pathlib
 import hikari
 
 import lightbulb
@@ -49,7 +50,7 @@ class Ichigo(lightbulb.BotApp):
         self._database = Database(self, Ichigo.CONFIG_CACHE.database)
         await self.database.initialise()
         _LOGGER.info("Loading extensions")
-        self.load_extensions_from(os.path.dirname(extensions.__file__))
+        self.load_extensions_from(pathlib.Path(os.path.realpath(extensions.__file__)))
 
     async def on_started(self, _: hikari.StartedEvent):
         pass

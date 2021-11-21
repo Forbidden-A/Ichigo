@@ -60,4 +60,4 @@ class Config(BaseConfig):
 
     bot: BotConfig = attr.ib(factory=BotConfig)
     logging: LoggingConfig = attr.ib(factory=LoggingConfig)
-    # database: PostgresConfig = attr.ib(factory=PostgresConfig)
+    database: PostgresConfig = attr.ib(factory=PostgresConfig)

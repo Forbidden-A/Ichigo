@@ -4,11 +4,11 @@ import typing
 import asyncio
 import asyncpg
 import hikari
+from lightbulb.app import BotApp
 
 
 from ichigo.config.models import PostgresConfig
 from ichigo.resources import get_resource
-from ichigo.app import Ichigo
 
 __all__ = ["Database"]
 
@@ -18,7 +18,7 @@ _any_callable = typing.Callable[..., typing.Any]
 
 
 class Database:
-    def __init__(self, bot: Ichigo, config: PostgresConfig) -> None:
+    def __init__(self, bot: BotApp, config: PostgresConfig) -> None:
         self.bot = bot
         self.config = config
         self._connected = asyncio.Event()
