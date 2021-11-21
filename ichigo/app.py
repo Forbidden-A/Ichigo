@@ -7,6 +7,7 @@ from ichigo import extensions
 
 from ichigo.config.load import deserialise_raw_config, load_config_file
 from ichigo.config.models import Config
+from ichigo.database import Database
 
 __all__ = ["Ichigo"]
 
@@ -44,9 +45,9 @@ class Ichigo(lightbulb.BotApp):
 
     async def on_starting(self, _: hikari.StartingEvent):
         _LOGGER.info("Bot is Starting..")
-        # _LOGGER.info("Connecting to database..")
-        # self._database = Database(self, Yuganda.CONFIG_CACHE.database)
-        # await self.database.initialise()
+        _LOGGER.info("Connecting to database..")
+        self._database = Database(self, Ichigo.CONFIG_CACHE.database)
+        await self.database.initialise()
         _LOGGER.info("Loading extensions")
         self.load_extensions_from(os.path.dirname(extensions.__file__))
 
